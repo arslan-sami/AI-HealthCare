@@ -1,0 +1,20 @@
+{% extends 'base.html'%}
+{% block content %}
+<div class="row">
+    <div class="col-sm-8 offset-2">
+        <h4 class="alert alert-info">Update Patient Information</h4>
+        <form action="" method="post">
+            {% csrf_token %}
+            {{ edtpro.as_p }}
+            <input type="submit" class="btn btn-success" value="Update" onclick="alert ('Record Updated')">
+            <a href="{% url 'patient_page' %}" class="btn btn-info">Back to Home</a>
+        </form>
+    </div>
+</div>
+<!-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+{% for i in msg %}
+<script>
+    swal('Record Updated');
+</script> -->
+{% endfor %}
+{% endblock content %}

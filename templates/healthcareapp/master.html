@@ -1,0 +1,417 @@
+<!-- {% load static %} -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI-HealthCare</title>
+  <!-- include bootstrap link here -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <!-- include external css -->
+  <!-- <link rel="stylesheet" href="{% static 'cssfiles/master.css' %}"> -->
+</head>
+<style>
+  * {
+    padding: 0px;
+    margin: 0px;
+  }
+
+  ul,
+  a {
+    text-decoration: none;
+    list-style: none;
+  }
+
+  .content_left {
+    display: flex !important;
+    flex-direction: row !important;
+
+  }
+
+  .bg-Blue {
+    color: white !important;
+    font-weight: bold;
+  }
+
+  .font-awesome {
+    font-family: awesome;
+  }
+
+  .text-25 {
+    font-size: 20px;
+  }
+
+  .bg-color-setting {
+    background-color: seagreen !important;
+    height: 100vh;
+  }
+</style>
+
+<body>
+  <!-- nav bar for Home , About us , Services , Our Departments , Testimonials , Portfolio button start from here -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <!-- logo img -->
+    <img src="{% static 'img/AiHealthCare_logo.png' %}" width="100" height="75" alt="">
+    <!-- ////////////////// -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <!-- dropdown button for Our Doctor's List -->
+          <div class="dropdown nav-link">
+            <button class="btn  dropdown-toggle mx-2" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              Our Doctors
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <!-- ///////////////////////////////// -->
+              <!-- add Doctors from database -->
+              <!-- ///////////////////////////////// -->
+            </div>
+          </div></a>
+        </li>
+        <li class="nav-item">
+          <!-- dropdown for Disease Detection -->
+          <div class="dropdown  nav-link">
+            <button class="btn  dropdown-toggle mx-2" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              Disease Detection
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item">Cancer Detection</a>
+              <a class="dropdown-item">Heart Attack Detection</a>
+              <a class="dropdown-item">Diabetes Detection</a>
+              <a class="dropdown-item">Diarrhea Detection</a>
+            </div>
+          </div>
+          <!-- ////////////////////// -->
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <!-- drop down button on right of the navbar -->
+        <div class="dropdown  nav-link">
+          <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Explore
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="/home">Home</a>
+            <a class="dropdown-item" href="#services">Services</a>
+            <a class="dropdown-item" href="#about">About us</a>
+            <a class="dropdown-item" href="#departments">Departments</a>
+            <a class="dropdown-item" href="#total_cases">Total Cases</a>
+            <a class="dropdown-item" href="#testimonials">Testimonials</a>
+            <a class="dropdown-item" href="#portfolio">Portfolio</a>
+          </div>
+        </div>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-outline-info " data-toggle="modal" data-target="#staticBackdrop">
+          Log In
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
+          aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form>
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label for="inputEmail4">Email</label>
+                      <input type="email" class="form-control" id="inputEmail4">
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="inputPassword4">Password</label>
+                      <input type="password" class="form-control" id="inputPassword4">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="inputAddress">Address</label>
+                    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                  </div>
+                  <div class="form-group">
+                    <label for="inputAddress2">Address 2</label>
+                    <input type="text" class="form-control" id="inputAddress2"
+                      placeholder="Apartment, studio, or floor">
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label for="inputCity">City</label>
+                      <input type="text" class="form-control" id="inputCity">
+                    </div>
+                    <div class="form-group col-md-4">
+                      <label for="inputState">State</label>
+                      <select id="inputState" class="form-control">
+                        <option selected>Choose...</option>
+                        <option>...</option>
+                      </select>
+                    </div>
+                    <div class="form-group col-md-2">
+                      <label for="inputZip">Zip</label>
+                      <input type="text" class="form-control" id="inputZip">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="gridCheck">
+                      <label class="form-check-label" for="gridCheck">
+                        Check me out
+                      </label>
+                    </div>
+                  </div>
+                  <button type="submit" class="btn btn-primary">Sign in</button>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Understood</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </nav>
+  <!-- nav bar for Home , About us , Services , Our Departments , Testimonials , Portfolio button end here -->
+  <!-- ///////////////////////////////// -->
+  <!-- ///////////////////////////////// -->
+  <!-- ///////////////////////////////// -->
+  <!-- top image code start from here -->
+  <div class="container-fluid">
+    <div class=" text-center display-1 font-awesome">
+      <div id="carouselExampleCaptions" class="carousel slide " data-ride="carousel">
+        <div class="carousel-inner border">
+          <div class="carousel-item active ">
+            <img src="{% static 'img/topimg.jpg' %}" width="100" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-md-block">
+              <!-- ////////////////////////////////// -->
+              <!-- ////////////////////////////////// -->
+              <!-- ////////////////////////////////// -->
+            </div>
+
+          </div>
+        </div>
+        <!-- feed back end -->
+      </div>
+    </div>
+    <!-- top image code end here -->
+    <!-- ////////////////////////// -->
+    <!-- ////////////////////////// -->
+    <!-- ////////////////////////// -->
+    <!-- ////////////////////////// -->
+    <!-- our Services Section start from here -->
+    <Section id="services" class="container-fluid my-auto bg-color-setting">
+      <!-- title of services section start-->
+      <h1 class="text-center font-awesome text-capitalize">What we Offers</h1>
+      <!-- title of services section end -->
+      <!-- //////////////////// -->
+      <!-- //////////////////// -->
+      <div class="row w-75 mx-auto ">
+        <!-- left side of services Section start -->
+        <div class="col-12 col-md-6 col-lg-6 col-xl-6 my-3 ">
+          <img src="{% static 'img/doctorrobot.png' %}" width="250" class="img-fluid mx-auto" alt="">
+        </div>
+        <!-- left side of services Section end -->
+        <div class="col-12 col-md-6 col-6 col-lg-6 col-xl-6 my-3  ">
+          <ul class="p-3">
+            <li>
+              <p class="text-capitalize font-weight-bolder font-awesome text-25">Complete Hospital Managemnet</p>
+            </li>
+            <li>
+              <p class="text-capitalize font-weight-bolder font-awesome text-25">Chabot for Patients</p>
+              <ol>
+                <li>
+                  <p class="text-capitalize font-weight-normal text-18">taking symptoms -> complete info</p>
+                </li>
+                <li>
+                  <p class="text-capitalize font-weight-normal text-18">Predict medinces according to diesease</p>
+                </li>
+                <li>
+                  <p class="text-capitalize font-weight-normal text-18">Book appointment with best doctors</p>
+                </li>
+                <li>
+                  <p class="text-capitalize font-weight-normal text-18">Cancer Detection</p>
+                </li>
+                <li>
+                  <p class="text-capitalize font-weight-normal text-18">Heart Attack Detection</p>
+                </li>
+                <li>
+                  <p class="text-capitalize font-weight-normal text-18">and detect many more Disease</p>
+                </li>
+              </ol>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+    </Section>
+
+    <!-- our Services Section end here -->
+    <!-- //////////////////////// -->
+    <!-- //////////////////////// -->
+    <!-- //////////////////////// -->
+    <!-- //////////////////////// -->
+
+    <!-- our about us section start -->
+    <Section id="about" class="container-fluid bg-color-setting">
+      <!-- title of about section start-->
+      <h1 class="text-center font-awesome text-capitalize">Why patients Choose our System</h1>
+      <!-- title of services section end -->
+      <!-- //////////////////// -->
+      <!-- //////////////////// -->
+      <div class="row w-75 mx-auto ">
+        <!-- left side of services Section start -->
+        <div class="col-12 col-md-6 col-lg-6 col-xl-6 my-3 ">
+          <!-- <img src="{% static 'img/doctorrobot.png' %}" width="250" class="img-fluid mx-auto" alt=""> -->
+        </div>
+        <!-- left side of services Section end -->
+        <div class="col-12 col-md-6 col-6 col-lg-6 col-xl-6 my-3  ">
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam rerum unde a maxime, laudantium sequi
+            nulla
+            ullam quidem est sapiente reprehenderit quod doloremque debitis velit culpa nihil dicta porro quos alias
+            dolores fuga aliquam? Ipsa sit eaque et ratione, sequi magnam reiciendis? Vero nostrum rerum est veniam
+            magnam
+            eaque tenetur quibusdam dolore officiis! Explicabo suscipit magni quo consequuntur obcaecati iste molestias,
+            quibusdam error! Modi nam voluptatem maxime aut, suscipit dicta iste nobis ex quibusdam quod incidunt, nemo
+            repellendus iure ea a doloribus voluptates numquam accusantium necessitatibus laboriosam quia possimus.
+            Accusantium quisquam dolore repellendus delectus, totam, neque harum nostrum molestiae, consectetur modi qui
+            aspernatur minus ad ipsam saepe reiciendis repellat. Esse recusandae sequi voluptatibus quod laboriosam et
+            eius minima accusamus maxime odit. Dolorem delectus illum reiciendis sint saepe necessitatibus architecto
+            enim, sequi aperiam, iste corporis dignissimos non voluptas dolor minima nobis in quis fugit! Molestiae,
+            praesentium. Facere eius optio earum et!</p>
+        </div>
+      </div>
+    </Section>
+    <!-- our about us section end -->
+    <!-- //////////////////////// -->
+    <!-- //////////////////////// -->
+    <!-- //////////////////////// -->
+    <!-- //////////////////////// -->
+
+    <!-- our departments section start from here -->
+    <Section class="container-fluid bg-color-setting" id="departments">
+      <!-- title of our departments -->
+      <h1 class="text-capitatlize font-weight-bolder text-center font-awesome">Our Departments</h1>
+      <!-- title of our departments end -->
+      <!-- //////////////////////// -->
+      <!-- //////////////////////// -->
+      <div class="row">
+        <!-- left side section of image start  -->
+        <div class="my-auto col-12 col-md-6 col-lg-6 col-xl-6">
+          <h3 class="font-awesome font-weight-bold">Lorem ipsum dolor sit.S</h3>
+          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam dolorum quos voluptates quibusdam, ipsa
+            dolorem et sunt nobis voluptas dolore voluptate, expedita animi delectus commodi cupiditate. Neque quidem
+            rerum, sit in repudiandae maiores est tempora rem, eligendi corporis veniam ipsa vel dolorum repellendus
+            nisi,
+            ipsum sed! Dolor, deserunt. Labore exercitationem magnam rem, illum omnis accusamus odit quis quia, eius
+            autem
+            magni suscipit optio alias inventore nihil. Facilis odio asperiores non perspiciatis ullam cupiditate
+            inventore voluptate magnam.</p>
+        </div>
+        <!-- left side section of image end -->
+        <!-- ///////////////////// -->
+        <!-- ///////////////////// -->
+        <!-- right side section start -->
+        <div class="col-12 col-md-6 col-lg-6 col-xl-6 p-5 justify-conetent-center">
+          <p class="text-capitalize font-weight-bolder text-center font-awesome">Cancer Departments</p>
+          <p class="text-capitalize font-weight-bolder text-center font-awesome">Heart Departments</p>
+          <p class="text-capitalize font-weight-bolder text-center font-awesome">Dental Departments</p>
+          <p class="text-capitalize font-weight-bolder text-center font-awesome">psycology Departments</p>
+          <p class="text-capitalize font-weight-bolder text-center font-awesome">orthopaedics Departments</p>
+          <p class="text-capitalize font-weight-bolder text-center font-awesome">paediatrics & neonatology Departments
+          </p>
+          <p class="text-capitalize font-weight-bolder text-center font-awesome">Gastroenterology Departments</p>
+          <p class="text-capitalize font-weight-bolder text-center font-awesome">chest & vascular Departments</p>
+          <p class="text-capitalize font-weight-bolder text-center font-awesome">pathology Departments</p>
+        </div>
+      </div>
+
+    </Section>
+    <!-- our departments section end here -->
+    <!-- //////////////////////// -->
+    <!-- //////////////////////// -->
+    <!-- //////////////////////// -->
+    <!-- //////////////////////// -->
+    <!-- our tetimonials  start -->
+    <section id="testimonials" class="container-fluid d-flex flex-column">
+      <!-- title of Testimonials -->
+      <h2 class="text-capitalize font-awesome text-center">Happy Patients</h2>
+      <!-- title of Testimonials end -->
+      <!-- //////////////////////// -->
+      <!-- //////////////////////// -->
+      <!-- feed back  -->
+      <div id="carouselExampleCaptions" class="carousel slide " data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+          <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner border">
+          <div class="carousel-item active">
+            <img src="{% static 'img/feedback.jpg' %}" class=" d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block my-5">
+              <div class="circle-radius">
+                <img src="{% static 'img/download.png' %}" alt="">
+              </div>
+              <h5 class="text-capitalize"> name of patients </h5>
+              <p class="text-danger font-weight-bold text-25 my-5"> Lorem ipsum dolor sit amet consectetur adipisicing
+                elit. Dolores ullam odio aspernatur perferendis dolorum ipsam deserunt doloremque quod necessitatibus
+                veritatis, a dignissimos debitis aliquid assumenda quaerat expedita magnam harum itaque laborum omnis
+                asperiores facilis suscipit dolore. Saepe consequuntur delectus commodi optio eligendi sit rerum
+                excepturi. Vel itaque corporis in laborum. </p>
+            </div>
+          </div>
+
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+      <!-- feed back end -->
+
+    </section>
+    <!-- our tetimonials  end -->
+
+
+
+
+
+
+    {% block content %}
+    <!-- body content goes here -->
+    {% endblock content %}
+
+
+
+
+
+    <!-- include js and jquey from bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+      crossorigin="anonymous"></script>
+</body>
+
+</html>

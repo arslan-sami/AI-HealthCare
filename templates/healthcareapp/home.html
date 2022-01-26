@@ -1,0 +1,257 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HealthCare</title>
+    <link rel="stylesheet" href="{% static 'cssfiles/index.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="nav">
+            <div class="logo row ml-2">
+                <img src="{% static 'img/logo.png' %}" width="80" height="65" alt="">
+                <h4 class="my-4">AI HealthCare</h4>
+            </div>
+
+            <div class="links">
+                <a href="#" class="mainlink">Home</a>
+                <a href="#services">Services</a>
+                <a href="#about">About Us</a>
+                <a href="#department">Departments</a>
+                <a href="#portfolio">Portfolio</a>
+            </div>
+        </div>
+
+
+
+        <!-- LANDING PAGE -->
+
+        <div class="landing">
+            <div class="landingText" data-aos="fade-up" data-aos-duration="1000">
+                <h1>Medical</h1>
+                <span style="color:#14af9f;font-size: 3vw"> Services That You Can Trust </span>
+                <h3>Need Professional help? Our AI System will help you to find your Problem. visit Us Now or Make an
+                Appointment!</h3>
+                <div class="btn">
+                    <a href="{% url 'login_page' %}">Login</a>
+                </div>
+            </div>
+            <div class="landingImage" data-aos="fade-down" data-aos-duration="2000">
+                <img src="{% static 'img/bg.png' %}" alt="">
+            </div>
+        </div>
+
+        <!-- ABOUT SECTION -->
+
+        <div class="about">
+            <div class="aboutText" data-aos="fade-up" data-aos-duration="1000">
+                <h1><span style="color:#14af9f;font-size:3vw">What We Offers</span> </h1> <br>
+                <img src="{% static 'img/doctorrobot.png' %}" alt="">
+            </div>
+            <div class="aboutList" data-aos="fade-left" data-aos-duration="1000">
+                <ol>
+                    
+                    <li>
+                        <span>01</span>
+                        <p>Taking symptoms</p>
+                    </li>
+                    <li>
+                        <span>02</span>
+                        <p>Predict medinces according to diesease</p>
+                    </li>
+                    <li>
+                        <span>03</span>
+                        <p>Give Precautions</p>
+                        
+                    </li>
+                    <li>
+                        <span>04</span>
+                        <p>Detail Info About Disease</p>
+                        
+                    </li>
+
+                    <li>
+                        <span>04</span>
+                        <p>Book appointment with best doctors</p>
+                    </li>
+
+                </ol>
+            </div>
+        </div>
+
+        <!-- INFO SECTION -->
+
+        <div class="infoSection">
+            <div class="infoHeader" data-aos="fade-up" data-aos-duration="1000">
+                <h1> Why Patients Choose Our System <br> <span style="color:#14af9f">Advanced technology</span> </h1>
+            </div>
+            <div class="banner">
+                <div class="bannerText" data-aos="fade-right" data-aos-duration="1000">
+                    <h5 class="col-12 col-md-8 col-lg-8 col-xl-8 ml-5"><span style="font-size:1.6vw;font-weight:normal"
+                            class="bannerInnerText">
+                            <p align="justify"> In this website we use AI to make the automatic disease prediction systeem which usese patients. by using the automatic disease prediction system patient can communicate to the system, tell the diseases, that in the response system suggest the treatment to a patient and it will set an appointment to the related doctor.</p>
+                        </span> </h5>
+                    <!-- <a href="#"> <img src="./img/anim.gif" alt=""> </a>
+                    <a href="#"> <img src="img/iosPNG.png" alt=""> </a> -->
+                </div>
+                <div class="bannerImg" data-aos="fade-up" data-aos-duration="1000">
+                    <img src="{% static 'img/anim.gif' %}" class="mr-5 pr-5" alt="">
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Departments -->
+
+        <div class="about">
+            <div class="aboutText" data-aos="fade-up" data-aos-duration="1000">
+                <h1><span style="color:#14af9f;font-size:3vw">Our Departments</span> </h1>
+                <img src="{% static 'img/dept.png' %}" alt="">
+            </div>
+            <div class="aboutList" data-aos="fade-left" data-aos-duration="1000">
+                <ol>
+                    <li>
+
+                        <p>dermatology</p>
+                    </li>
+                    <li>
+
+                        <p>Neurology</p>
+                    </li>
+                    <li>
+
+                        <p>cardiology</p>
+                    </li>
+                
+                    <li>
+
+                        <p>gastroenterology</p>
+                    </li>
+                    <li>
+
+                        <p>Endocrinology</p>
+                    </li>
+
+                    <li>
+
+                        <p>hepatitis</p>
+                    </li>
+
+                    <li>
+
+                        <p>orthopedic</p>
+                    </li>
+
+                    <li>
+
+                        <p>ENT </p>
+                    </li>
+
+                    <li>
+
+                        <p>Nephrology </p>
+                    </li>
+
+                    <li>
+
+                        <p>Pulmonologist</p>
+                    </li>
+                    
+                </ol>
+            </div>
+        </div>
+
+
+        <!-- End Departments -->
+
+        <!-- BANNER AND FOOTER -->
+        <br>
+        <div class="aboutText" data-aos="fade-up" data-aos-duration="1000">
+            <h1><span style="color:#14af9f;font-size:3vw">Our Dedicated Doctors Team</span> </h1> <br> <br>
+
+        </div>
+
+        <div class="infoCards">
+            <div class="card one" data-aos="fade-up" data-aos-duration="1000">
+                <img src="{% static 'img/riffat.jpg' %}" class="cardoneImg" alt="" data-aos="fade-up"
+                    data-aos-duration="1100">
+                <div class="cardbgone"></div>
+                <div class="cardContent">
+                    <h2>Dr. riffat</h2>
+                    <p>cardiologist specialist</p>
+
+                    <a href="#">
+
+                        <div class="cardBtn px-3">
+                            <img src="{% static 'img/next.png' %}" alt="" class="cardIcon">
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="card two" data-aos="fade-up" data-aos-duration="1300">
+                <img src="{% static 'img/doc.jpg' %}" class="cardtwoImg" alt="" data-aos="fade-up"
+                    data-aos-duration="1200">
+                <div class="cardbgtwo"></div>
+                <div class="cardContent">
+                    <h2>Dr. Arslan</h2>
+                    <p>Neurology specialist</p>
+                    <a href="#">
+                        <div class="cardBtn">
+                            <img src="{% static 'img/next.png' %}" alt="" class="cardIcon">
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="card three" data-aos="fade-up" data-aos-duration="1600">
+                <img src="{% static 'img/mustansar.jpg' %}" class="cardthreeImg" alt="" data-aos="fade-up"
+                    data-aos-duration="1300">
+                <div class="cardbgone"></div>
+                <div class="cardContent">
+                    <h2>Dr. Mustansar</h2>
+                    <p>Skin specialist</p>
+                    <a href="#">
+                        <div class="cardBtn">
+                            <img src="{% static 'img/next.png' %}" alt="" class="cardIcon">
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <h2>HealthCare</h2>
+            <div class="footerlinks">
+                <!-- <a href="#" class="mainlink">Corona Updates</a> -->
+                <a href="#">Help</a>
+                <a href="#">About</a>
+                <a href="#">Contact</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+        crossorigin="anonymous"></script>
+    
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+        $('#myModal').on('shown.bs.modal', function () {
+            $('#myInput').trigger('focus')
+        })
+    </script>
+</body>
+
+</html>
